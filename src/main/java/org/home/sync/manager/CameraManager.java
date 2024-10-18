@@ -1,4 +1,4 @@
-package org.home.sync;
+package org.home.sync.manager;
 
 import org.home.sync.config.CameraConfig;
 import org.home.sync.recording.VideoRecorder;
@@ -26,12 +26,12 @@ import java.util.concurrent.Executors;
  * </p>
  * @author Carlos Noé Muñoz (cnoemunoz@gmail.com)
  */
-public class ManagmentService implements AutoCloseable{
+public class CameraManager implements AutoCloseable{
 
     /**
      * El logger.
      */
-    private static final Logger logger = LoggerFactory.getLogger(ManagmentService.class);
+    private static final Logger logger = LoggerFactory.getLogger(CameraManager.class);
 
     /**
      * Executor service que gestiona un pool de hilos para ejecutar tareas concurrentemente.
@@ -47,7 +47,7 @@ public class ManagmentService implements AutoCloseable{
      * @param jsonConfig Ruta del archivo de configuración JSON que contiene la información de las cámaras.
      * @throws IOException Si ocurre un error al cargar la configuración de las cámaras.
      */
-    public ManagmentService(String jsonConfig) throws IOException {
+    public CameraManager(String jsonConfig) throws IOException {
         executeService(jsonConfig);
     }
 
@@ -68,20 +68,7 @@ public class ManagmentService implements AutoCloseable{
 
         // Ejecutar cada tarea de cámara en un hilo separado
         for (CameraConfig cameraConfig : cameraConfigList) {
-            executorService.execute(() -> processCamera(cameraConfig));
-        }
-    }
-
-    /**
-     * Procesa el stream de una cámara y lo guarda en disco utilizando {@link VideoRecorder}.
-     *
-     * @param cameraConfig Información de la cámara que se procesará.
-     */
-    private void processCamera(CameraConfig cameraConfig) {
-        try {
-            new VideoRecorder(cameraConfig).recordStream();
-        } catch (IOException e) {
-            logger.error("Error al procesar la cámara: " + cameraConfig.getName() + " -> " + e.getMessage());
+            executorService.execute(new VideoRecorder(cameraConfig));
         }
     }
 

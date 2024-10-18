@@ -1,5 +1,6 @@
-package org.home.sync;
+package org.home.sync.recording;
 
+import org.home.sync.config.CameraConfig;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
@@ -34,7 +35,7 @@ public class VideoRecorder implements Runnable {
     /**
      * Toda la información necesaria para poder hacer el Stream.
      */
-    private final CameraConnectionInfo cameraConnectionInfo;
+    private final CameraConfig cameraConfig;
 
     /**
      * Comando para invocar FFmpeg.
@@ -78,10 +79,10 @@ public class VideoRecorder implements Runnable {
 
     /**
      * Construcción de un StreamToDiskSaver a partir de un CameraConnectionInfo
-     * @param cameraConnectionInfo el CameraConnectionInfo
+     * @param cameraConfig el CameraConnectionInfo
      */
-    public VideoRecorder(CameraConnectionInfo cameraConnectionInfo) {
-        this.cameraConnectionInfo = cameraConnectionInfo;
+    public VideoRecorder(CameraConfig cameraConfig) {
+        this.cameraConfig = cameraConfig;
     }
 
     /**
@@ -89,13 +90,13 @@ public class VideoRecorder implements Runnable {
      * en el fichero de salida que le hemos indicado.
      * @throws IOException
      */
-    public void recordStream()
+    private void recordStream()
     throws IOException {
-        String rtspUrl = cameraConnectionInfo.getRtspUrl();
-        String outputPattern = cameraConnectionInfo.getName() + "/output_%03d.ts";  // Usamos el formato .ts
+        String rtspUrl = cameraConfig.getRtspUrl();
+        String outputPattern = cameraConfig.getName() + "/output_%03d.ts";  // Usamos el formato .ts
 
         try {
-            Path p = Files.createDirectory(Path.of(cameraConnectionInfo.getName()));
+            Path p = Files.createDirectory(Path.of(cameraConfig.getName()));
             logger.info("nuevo directorio creado" + p);
         } catch (FileAlreadyExistsException e){
             logger.info("directorio ya creado de forma previa");
@@ -147,12 +148,12 @@ public class VideoRecorder implements Runnable {
                 Arrays.asList(
                         FFMPEG_COMMAND,
                         INPUT_FLAG, rtspUrl,
-                        VIDEO_CODEC_FLAG, cameraConnectionInfo.getVideoCodec(),
-                        AUDIO_CODEC_FLAG, cameraConnectionInfo.getAudioCodec(),
-                        FORMAT_FLAG, cameraConnectionInfo.getFormat(),
-                        SEGMENT_TIME_FLAG, cameraConnectionInfo.getSegmentTime(),
-                        RESET_TIMESTAMPS_FLAG, cameraConnectionInfo.getResetTimeStamps(),
-                        RTSP_TRANSPORT_FLAG, cameraConnectionInfo.getRTSPTransport(),
+                        VIDEO_CODEC_FLAG, cameraConfig.getVideoCodec(),
+                        AUDIO_CODEC_FLAG, cameraConfig.getAudioCodec(),
+                        FORMAT_FLAG, cameraConfig.getFormat(),
+                        SEGMENT_TIME_FLAG, cameraConfig.getSegmentTime(),
+                        RESET_TIMESTAMPS_FLAG, cameraConfig.getResetTimeStamps(),
+                        RTSP_TRANSPORT_FLAG, cameraConfig.getRTSPTransport(),
                         outputPattern
                 )
         );
@@ -166,7 +167,7 @@ public class VideoRecorder implements Runnable {
         try {
             recordStream();
         } catch (IOException e) {
-            logger.error("error al ejecutar el proceso para la camara " + cameraConnectionInfo.toString(), e);
+            logger.error("error al ejecutar el proceso para la camara " + cameraConfig.toString(), e);
             logger.info("vamos a recuperarnos del proceso");
             logger.info("volviendo a ejecutar de nuevo mi proceso en mi hilo");
             run();

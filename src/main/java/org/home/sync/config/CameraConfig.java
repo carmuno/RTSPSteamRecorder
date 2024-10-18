@@ -1,4 +1,4 @@
-package org.home.sync;
+package org.home.sync.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

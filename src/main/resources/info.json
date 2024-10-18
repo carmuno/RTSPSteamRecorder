@@ -1,5 +1,20 @@
-user=cnoe-tapo
-password=bypvos-7qycme-cejfiF
-ip=192.168.1.50
-port=554
-stream=stream1
+[
+  {
+    "name": "jardin-trasero",
+    "user": "cnoe-tapo",
+    "password": "bypvos-7qycme-cejfiF",
+    "ip": "192.168.1.50",
+    "port": 554,
+    "stream": "stream2",
+    "segmentTime": 150
+  },
+  {
+    "name": "jardin-delantero",
+    "user": "cnoe-tapo",
+    "password": "bypvos-7qycme-cejfiF",
+    "ip": "192.168.1.42",
+    "port": 554,
+    "stream": "stream2",
+    "segmentTime": 150
+  }
+]

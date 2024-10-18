@@ -1,4 +1,4 @@
-package org.home.sync;
+package org.home.sync.config;
 
 import com.google.gson.*;
 import org.home.sync.recording.StreamQuality;

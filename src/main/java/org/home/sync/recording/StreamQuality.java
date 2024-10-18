@@ -1,4 +1,4 @@
-package org.home.sync;
+package org.home.sync.recording;
 
 /**
  * La enumeración {@code StreamType} define los tipos de streams admitidos por el sistema.
