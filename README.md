@@ -13,7 +13,7 @@ example: (only in local access)
 ```json
 [
   {
-    "name": "jardin-trasero",
+    "name": "backyard-garden",
     "user": "cnoe-tapo",
     "password": "bypvos-7qycme-cejfiF",
     "ip": "192.168.1.50",
@@ -22,7 +22,7 @@ example: (only in local access)
     "segmentTime": 150
   },
   {
-    "name": "jardin-delantero",
+    "name": "frontyard-garden",
     "user": "cnoe-tapo",
     "password": "bypvos-7qycme-cejfiF",
     "ip": "192.168.1.42",
