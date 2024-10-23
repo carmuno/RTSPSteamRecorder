@@ -4,6 +4,7 @@ A very simple Java library that captures RTSP streams and stores them in a direc
 
 example: (only in local access)
 
+```json
 [
   {
     "name": "jardin-trasero",
@@ -24,6 +25,7 @@ example: (only in local access)
     "segmentTime": 150
   }
 ]
+
 
 
 
