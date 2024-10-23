@@ -1,6 +1,12 @@
 # HouseSync
 
-A very simple Java library that captures RTSP streams and stores them in a directory. The configuration is straightforward, using a JSON file to specify camera parameters. The library supports downloading and storing video files from multiple cameras simultaneously, providing an efficient and easy-to-use solution for managing RTSP streams. The result of the recording is stored by default in a directory whose name is the name of the camera you specified in the JSON.
+📹 **Simple Java library to capture and store RTSP streams**.
+
+### Key Features:
+- 📂 Stores recordings in a directory.
+- ⚙️ Easy configuration using a JSON file.
+- 🎥 Supports multiple cameras at the same time.
+- 📁 Recordings are saved in a folder named after each camera (as specified in the JSON).
 
 example: (only in local access)
 
