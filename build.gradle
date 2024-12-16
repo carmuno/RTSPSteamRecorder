@@ -17,7 +17,14 @@ dependencies {
 
     implementation 'org.slf4j:slf4j-api:2.0.9'
     implementation 'ch.qos.logback:logback-classic:1.4.11'
+}
 
+/**
+ * Instala mediamtx. Es un binary necesario para aplicar la duplicación del RTSP.
+ */
+task installMediamtx(type: Exec) {
+    description = "Descarga e instala mediamtx"
+    commandLine 'bash', './install-mediamtx.sh'
 }
 
 tasks.test {

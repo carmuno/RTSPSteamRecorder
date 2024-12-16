@@ -49,6 +49,12 @@ public class CameraConfig {
     private static final Logger logger = LoggerFactory.getLogger(CameraConfig.class);
 
     /**
+     * Si se quiere o no clonar la retrasmisión RTSP. Se hace para evitar la ocupación de los canales de Stream
+     * {@link StreamQuality} por el funcionamiento de la libreria u otros.
+     */
+    private RTSPCloneConfig cloneRTSPStream;
+
+    /**
      * El name que se le da al dispositivo.
      */
     private final String name;
@@ -120,7 +126,7 @@ public class CameraConfig {
      * @param user     el user.
      * @param password el pass.
      */
-     public CameraConfig(String name, String user, String password, String ip, int port, StreamQuality stream)
+     public CameraConfig(String name, String user, String password, String ip, int port, StreamQuality stream, RTSPCloneConfig cloneRTSPStream)
      throws UnknownHostException {
          if (name == null || name.trim().isEmpty()) {
              throw new IllegalArgumentException("El nombre no puede ser nulo o vacío.");
@@ -146,11 +152,12 @@ public class CameraConfig {
          this.ip = ip;
          this.port = port;
          this.stream = stream;
-         this.rtspUrl = generatertspUrl();
+         this.rtspUrl = generatertspUrlWithOutPath();
+         this.cloneRTSPStream = cloneRTSPStream;
      }
 
-    private String generatertspUrl() {
-        return "rtsp://" + this.user + ":" + this.password + "@" + this.ip + ":" + this.port + "/" + stream.name().toLowerCase();
+    public String generatertspUrlWithOutPath() {
+        return "rtsp://" + this.user + ":" + this.password + "@" + this.ip + ":" + this.port;
     }
 
     /**
@@ -180,6 +187,10 @@ public class CameraConfig {
 
             return gson.fromJson(new InputStreamReader(inputStream, StandardCharsets.UTF_8), type);
         }
+    }
+
+    public RTSPCloneConfig getCloneRTSPStream() {
+        return cloneRTSPStream;
     }
 
     private String getIp() {
@@ -260,6 +271,10 @@ public class CameraConfig {
 
     public void setRTSPTransport(String RTSPTransport) {
         this.RTSPTransport = RTSPTransport;
+    }
+
+    public StreamQuality getStream() {
+        return stream;
     }
 
 }

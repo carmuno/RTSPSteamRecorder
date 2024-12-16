@@ -1,4 +1,4 @@
-# HouseSync
+# RTSPSteamRecorder
 
 📹 **Simple Java library to capture and store RTSP streams**.
 

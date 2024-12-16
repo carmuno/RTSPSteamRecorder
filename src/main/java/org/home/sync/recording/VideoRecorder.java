@@ -7,7 +7,10 @@ import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 import org.slf4j.Logger;
 
 /**
@@ -78,6 +81,18 @@ public class VideoRecorder implements Runnable {
     public static final String RTSP_TRANSPORT_FLAG = "-rtsp_transport";
 
     /**
+     * Por si queremos duplicar la retransmisión rtsp,
+     * Indica que el códec no debe cambiarse, copiando el flujo tal como está.
+     *
+     * por ejemplo:
+     *
+     * -c copy: Indica que el códec no debe cambiarse, copiando el flujo tal como está.
+     * -c:v libx264: Usa el códec de video H.264.
+     * -c:a aac: Usa el códec de audio AAC.
+     */
+    public static final String COPY_FLAG = "-c:v copy";
+
+    /**
      * Construcción de un StreamToDiskSaver a partir de un CameraConnectionInfo
      * @param cameraConfig el CameraConnectionInfo
      */
@@ -143,20 +158,40 @@ public class VideoRecorder implements Runnable {
      * @return El proceso {@link Process} configurado para ejecutar FFmpeg.
      * @throws IOException Si ocurre un error al crear el proceso o si hay problemas de entrada/salida durante su ejecución.
      */
-    private Process getProcess(String rtspUrl, String outputPattern) throws IOException {
-        ProcessBuilder processBuilder = new ProcessBuilder(
-                Arrays.asList(
-                        FFMPEG_COMMAND,
-                        INPUT_FLAG, rtspUrl,
-                        VIDEO_CODEC_FLAG, cameraConfig.getVideoCodec(),
-                        AUDIO_CODEC_FLAG, cameraConfig.getAudioCodec(),
-                        FORMAT_FLAG, cameraConfig.getFormat(),
-                        SEGMENT_TIME_FLAG, cameraConfig.getSegmentTime(),
-                        RESET_TIMESTAMPS_FLAG, cameraConfig.getResetTimeStamps(),
-                        RTSP_TRANSPORT_FLAG, cameraConfig.getRTSPTransport(),
-                        outputPattern
-                )
-        );
+    private Process getProcess(String rtspUrl, String outputPattern)
+    throws IOException {
+        List<String> base = new ArrayList<>();
+        base.add(FFMPEG_COMMAND);
+        base.add(INPUT_FLAG);
+        base.add(rtspUrl + "/" + cameraConfig.getStream().name().toLowerCase());
+        if(cameraConfig.getCloneRTSPStream()!=null) {
+            cameraConfig.getCloneRTSPStream().getOutputEndpoints().forEach((a) -> {
+                base.add(RTSP_TRANSPORT_FLAG);
+                base.add(cameraConfig.getCloneRTSPStream().getCloneTransport());
+                base.add(COPY_FLAG);
+                base.add(FORMAT_FLAG);
+                base.add(cameraConfig.getCloneRTSPStream().getFormat());
+                base.add(rtspUrl + a); //añadimos al stream rtsp, el nuevo path donde será clonado
+            });
+        } else {
+            base.add(FORMAT_FLAG);
+            base.add(cameraConfig.getFormat());
+            base.add(VIDEO_CODEC_FLAG);
+            base.add(cameraConfig.getVideoCodec());
+            base.add(AUDIO_CODEC_FLAG);
+            base.add(cameraConfig.getAudioCodec());
+            base.add(RTSP_TRANSPORT_FLAG);
+            base.add(cameraConfig.getRTSPTransport());
+        }
+        base.add(SEGMENT_TIME_FLAG);
+        base.add(cameraConfig.getSegmentTime());
+        base.add(RESET_TIMESTAMPS_FLAG);
+        base.add(cameraConfig.getResetTimeStamps());
+        base.add(outputPattern);
+
+        logger.info("Ejecutando comando FFmpeg: " + String.join(" ", base));
+
+        ProcessBuilder processBuilder = new ProcessBuilder(base);
 
         processBuilder.redirectErrorStream(true); // Redirige errores y salida estándar juntos
         return processBuilder.start();

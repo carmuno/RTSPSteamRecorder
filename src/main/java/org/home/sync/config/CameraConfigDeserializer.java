@@ -15,7 +15,8 @@ import java.net.UnknownHostException;
 public class CameraConfigDeserializer implements JsonDeserializer<CameraConfig> {
 
     @Override
-    public CameraConfig deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+    public CameraConfig deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+    throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
 
         String name = jsonObject.get("name").getAsString();
@@ -25,10 +26,17 @@ public class CameraConfigDeserializer implements JsonDeserializer<CameraConfig> 
         int port = jsonObject.get("port").getAsInt();
         String stream = jsonObject.get("stream").getAsString();
         StreamQuality streamQuality = StreamQuality.valueOf(stream.toUpperCase());
+
+        RTSPCloneConfig cloneRTSPStream = null;
+        if (jsonObject.has("cloneRTSPStream")) {
+            JsonObject cloneRTSPStreamJson = jsonObject.getAsJsonObject("cloneRTSPStream");
+            cloneRTSPStream = context.deserialize(cloneRTSPStreamJson, RTSPCloneConfig.class);
+        }
+
         // Crear la instancia de CameraConnectionInfo con las propiedades obligatorias
         CameraConfig cameraConfig = null;
         try {
-            cameraConfig = new CameraConfig(name, user, password, ip, port, streamQuality);
+            cameraConfig = new CameraConfig(name, user, password, ip, port, streamQuality, cloneRTSPStream);
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         }

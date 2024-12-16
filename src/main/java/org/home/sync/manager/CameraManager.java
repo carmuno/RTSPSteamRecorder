@@ -5,7 +5,7 @@ import org.home.sync.recording.VideoRecorder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -66,9 +66,32 @@ public class CameraManager implements AutoCloseable{
         int sizePool = cameraConfigList.size();
         this.executorService = Executors.newFixedThreadPool(sizePool);
 
+        if(cameraConfigList.stream().anyMatch(a -> {
+            return a.getCloneRTSPStream() != null;
+        })) {
+            executorService.execute(CameraManager::startMediamtx); //si hay alguna entrada para duplicar el stream, levantamos el servidor de duplicación mediamtx.
+        }
         // Ejecutar cada tarea de cámara en un hilo separado
         for (CameraConfig cameraConfig : cameraConfigList) {
             executorService.execute(new VideoRecorder(cameraConfig));
+        }
+    }
+
+    private static void startMediamtx() {
+        try {
+            ProcessBuilder pb = new ProcessBuilder("./install-mediamtx.sh");
+            pb.inheritIO();
+            Process process = pb.start();
+            try(BufferedReader bufferedInputStreamReader = new BufferedReader(new InputStreamReader(process.getInputStream()))){
+                String line;
+                logger.info("Thread actual:" + Thread.currentThread().getName());
+                while ((line = bufferedInputStreamReader.readLine()) !=null) {
+                    logger.info(line);
+                }
+            }
+            logger.info("mediamtx iniciado correctamente.");
+        } catch (IOException e) {
+            logger.error("Error al iniciar mediamtx.");
         }
     }
 
