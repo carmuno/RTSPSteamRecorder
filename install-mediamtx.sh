@@ -27,6 +27,8 @@ if command -v /tmp/rtspSimpleServer/mediamtx &>/dev/null; then
     echo "Versión:"
     /tmp/rtspSimpleServer/mediamtx --version
     echo "Si quieres reinstalar, elimina la instalación existente y vuelve a ejecutar este script."
+    cd /tmp/rtspSimpleServer/
+    ./mediamtx
     exit 0
 fi
 

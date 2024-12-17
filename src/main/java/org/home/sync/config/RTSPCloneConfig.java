@@ -1,5 +1,6 @@
 package org.home.sync.config;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ public class RTSPCloneConfig {
     /**
      * El formato de salida. como es una duplicación, sera RTSP.
      */
-    private final String format = "rtsp";
+    private String format = "rtsp";
 
     /**
      * Lista de endpoints de salida para la duplicación de la transmisión RTSP.
@@ -25,6 +26,36 @@ public class RTSPCloneConfig {
      */
     private String cloneTransport = "tcp";
 
+    /**
+     * Servidor RTSP donde replicar la señal
+     */
+    private String rtspSever = "127.0.0.1";
+
+    /**
+     * Puerto del servidor RTSP donde se va a replicar la señal.
+     */
+    private int port = 8554;
+
+    /**
+     * Obtiene el server rtsp donde se va a replicar la señal.
+     * (el esqueleto)
+     * @return El server rtsp donde se va a replicar la señal.
+     */
+    private String getRtspServer() {
+        return "rtsp://" + rtspSever + ":" + port + "/";
+    }
+
+    /**
+     * Obtiene los servidores rtsp espejo a clonar la señar
+     * @return
+     */
+    public List<String> getRtspServers() {
+        List<String> list = new ArrayList<>();
+        for(String outpoint : getOutputEndpoints()){
+            list.add(getRtspServer() + outpoint);
+        }
+        return list;
+    }
 
     public String getFormat() {
         return format;
@@ -47,5 +78,21 @@ public class RTSPCloneConfig {
         return "RTSPCloneConfig{" +
                 ", outputEndpoints=" + outputEndpoints +
                 '}';
+    }
+
+    public String getRtspSever() {
+        return rtspSever;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setRtspSever(String rtspSever) {
+        this.rtspSever = rtspSever;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }

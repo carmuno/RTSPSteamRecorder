@@ -14,7 +14,7 @@ import java.util.List;
 import org.slf4j.Logger;
 
 /**
- * La clase {@code StreamToDiskSaver} es responsable de capturar el stream RTSP desde una cámara IP
+ * La clase {@code VideoRecorder} es responsable de capturar el stream RTSP desde una cámara IP
  * y guardar ese stream en archivos segmentados en el disco.
  * Implementa la interfaz {@code Runnable} para permitir la ejecución del proceso de grabación en un hilo separado.
  * <p>
@@ -82,15 +82,15 @@ public class VideoRecorder implements Runnable {
 
     /**
      * Por si queremos duplicar la retransmisión rtsp,
-     * Indica que el códec no debe cambiarse, copiando el flujo tal como está.
-     *
-     * por ejemplo:
-     *
-     * -c copy: Indica que el códec no debe cambiarse, copiando el flujo tal como está.
-     * -c:v libx264: Usa el códec de video H.264.
-     * -c:a aac: Usa el códec de audio AAC.
+     * Indica que el códec no debe cambiarse, copiando el flujo tal como está de video
      */
-    public static final String COPY_FLAG = "-c:v copy";
+    public static final String VIDEO_COPY_VALUE = "copy";
+
+    /**
+     * Por si queremos duplicar la retransmisión rtsp,
+     * Indica que el códec no debe cambiarse, copiando el flujo tal como está de audio
+     */
+    public static final String AUDIO_COPY_VALUE = "copy";
 
     /**
      * Construcción de un StreamToDiskSaver a partir de un CameraConnectionInfo
@@ -122,7 +122,6 @@ public class VideoRecorder implements Runnable {
         printLogsRecordStream(process);
         try {
             int exitCode = process.waitFor(); // Espera a que el proceso termine
-            logger.info("Comando ejecutado: ffmpeg -i " + rtspUrl + " -c:v libx264 -c:a aac -f segment -segment_time 300 -reset_timestamps 1 " + outputPattern);
             logger.info("exit code" + exitCode);
         } catch (InterruptedException e) {
             logger.error("Error al ejecutar el proceso de descarga de stream en fichero", e);
@@ -165,13 +164,16 @@ public class VideoRecorder implements Runnable {
         base.add(INPUT_FLAG);
         base.add(rtspUrl + "/" + cameraConfig.getStream().name().toLowerCase());
         if(cameraConfig.getCloneRTSPStream()!=null) {
-            cameraConfig.getCloneRTSPStream().getOutputEndpoints().forEach((a) -> {
+            cameraConfig.getCloneRTSPStream().getRtspServers().forEach((server) -> {
                 base.add(RTSP_TRANSPORT_FLAG);
                 base.add(cameraConfig.getCloneRTSPStream().getCloneTransport());
-                base.add(COPY_FLAG);
+                base.add(AUDIO_CODEC_FLAG);
+                base.add(AUDIO_COPY_VALUE);
+                base.add(VIDEO_CODEC_FLAG);
+                base.add(VIDEO_COPY_VALUE);
                 base.add(FORMAT_FLAG);
                 base.add(cameraConfig.getCloneRTSPStream().getFormat());
-                base.add(rtspUrl + a); //añadimos al stream rtsp, el nuevo path donde será clonado
+                base.add(server); //añadimos al stream rtsp, el nuevo path donde será clonado
             });
         } else {
             base.add(FORMAT_FLAG);

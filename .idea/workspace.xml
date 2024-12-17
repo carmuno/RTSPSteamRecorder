@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9a2218b-c39c-4549-92e5-69d7e90cec4b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/install-mediamtx.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WSDL/specs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/home/sync/config/RTSPCloneConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/home/sync/config/CameraConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/home/sync/config/CameraConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/home/sync/config/CameraConfigDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/home/sync/config/CameraConfigDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install-mediamtx.sh" beforeDir="false" afterPath="$PROJECT_DIR$/install-mediamtx.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/home/sync/config/RTSPCloneConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/home/sync/config/RTSPCloneConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/info.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/info.json" afterDir="false" />
     </list>
@@ -97,6 +88,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -105,28 +97,19 @@
       <recent name="org.home.sync" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.RTSPSteamRecorder [installMediamtx]">
-    <configuration name="HouseSync [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="dependencies" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.home.sync.Main" />
+      <module name="HouseSync.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.home.sync.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="RTSPSteamRecorder [installMediamtx]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -239,11 +222,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.RTSPSteamRecorder [installMediamtx]" />
         <item itemvalue="Python.app" />
         <item itemvalue="Flask server.Flask (untitled2/app.py)" />
         <item itemvalue="Flask server.Flask (pyton/app.py)" />
-        <item itemvalue="Gradle.HouseSync [dependencies]" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +252,7 @@
       <workItem from="1731598136843" duration="590000" />
       <workItem from="1732004454485" duration="574000" />
       <workItem from="1732009659579" duration="599000" />
-      <workItem from="1734017262174" duration="14513000" />
+      <workItem from="1734017262174" duration="20267000" />
     </task>
     <servers />
   </component>
@@ -281,7 +264,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>211</line>
+          <line>213</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -336,22 +319,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>126</line>
+          <line>125</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>127</line>
+          <line>126</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
           <line>124</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>125</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -366,22 +344,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>160</line>
+          <line>159</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>141</line>
+          <line>140</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>142</line>
+          <line>141</line>
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>143</line>
+          <line>142</line>
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -439,137 +417,137 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>128</line>
+          <line>127</line>
           <option name="timeStamp" value="150" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>129</line>
+          <line>128</line>
           <option name="timeStamp" value="151" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>162</line>
+          <line>161</line>
           <option name="timeStamp" value="263" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>163</line>
+          <line>162</line>
           <option name="timeStamp" value="264" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>166</line>
+          <line>165</line>
           <option name="timeStamp" value="267" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>167</line>
+          <line>166</line>
           <option name="timeStamp" value="268" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>170</line>
+          <line>169</line>
           <option name="timeStamp" value="269" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>173</line>
+          <line>175</line>
           <option name="timeStamp" value="273" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>174</line>
+          <line>176</line>
           <option name="timeStamp" value="274" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>175</line>
+          <line>177</line>
           <option name="timeStamp" value="275" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>177</line>
+          <line>179</line>
           <option name="timeStamp" value="276" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>176</line>
+          <line>178</line>
           <option name="timeStamp" value="277" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>178</line>
+          <line>180</line>
           <option name="timeStamp" value="278" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>179</line>
+          <line>181</line>
           <option name="timeStamp" value="279" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>180</line>
+          <line>182</line>
           <option name="timeStamp" value="280" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>184</line>
+          <line>186</line>
           <option name="timeStamp" value="281" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>181</line>
+          <line>183</line>
           <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>185</line>
+          <line>187</line>
           <option name="timeStamp" value="283" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>186</line>
+          <line>188</line>
           <option name="timeStamp" value="284" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>188</line>
+          <line>190</line>
           <option name="timeStamp" value="287" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>187</line>
+          <line>189</line>
           <option name="timeStamp" value="288" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>191</line>
+          <line>193</line>
           <option name="timeStamp" value="289" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>189</line>
+          <line>191</line>
           <option name="timeStamp" value="290" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>193</line>
+          <line>195</line>
           <option name="timeStamp" value="291" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>195</line>
+          <line>197</line>
           <option name="timeStamp" value="293" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>196</line>
+          <line>198</line>
           <option name="timeStamp" value="294" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>197</line>
+          <line>199</line>
           <option name="timeStamp" value="295" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -579,48 +557,188 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>164</line>
+          <line>163</line>
           <option name="timeStamp" value="297" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>165</line>
+          <line>164</line>
           <option name="timeStamp" value="298" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>171</line>
+          <line>173</line>
           <option name="timeStamp" value="300" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>172</line>
+          <line>174</line>
           <option name="timeStamp" value="301" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>168</line>
+          <line>167</line>
           <option name="timeStamp" value="302" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>169</line>
+          <line>168</line>
           <option name="timeStamp" value="303" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>182</line>
+          <line>184</line>
           <option name="timeStamp" value="304" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>183</line>
+          <line>185</line>
           <option name="timeStamp" value="305" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
-          <line>140</line>
+          <line>139</line>
           <option name="timeStamp" value="306" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="307" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="308" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="309" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="310" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="311" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="312" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="313" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="314" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="315" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="316" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="317" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="318" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="319" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="320" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="321" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="322" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="323" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="324" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="325" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="327" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="328" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="330" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="331" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="332" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
+          <line>170</line>
+          <option name="timeStamp" value="333" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
+          <line>171</line>
+          <option name="timeStamp" value="334" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/recording/VideoRecorder.java</url>
+          <line>172</line>
+          <option name="timeStamp" value="335" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/Main.java</url>
@@ -630,6 +748,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/home/sync/manager/CameraManager.java</url>
+          <line>79</line>
+          <properties class="org.home.sync.manager.CameraManager" method="startMediamtx">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="326" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/untitled2/app.py</url>
